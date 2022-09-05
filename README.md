@@ -1,9 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+障害者が賃貸物件を検索できるサイト。
+障害種別や都道府県で検索できるようにした。
 
 * Ruby version : 3.1.2
 
