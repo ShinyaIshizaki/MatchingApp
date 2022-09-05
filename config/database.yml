@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.postgresql
+  database: MatchingApp_production
+  username: MachingApp
+  password: <%= ENV['MATCHINGAPP_DATABASE_PASSWORD'] %>

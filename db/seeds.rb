@@ -11,11 +11,12 @@
 #   email: 'testuser1@test.com',
 #   admin: 0
 # )
-# User.create(
-#   name: 'TestAdminUser1',
-#   email: 'test2@test.com',
-#   admin: 1
-# )
+User.create(
+  name: 'TestAdminUser1',
+  email: 'admin@test.com',
+  password: 'password',
+  admin: 1
+)
 
 House.create(
   name: 'テストハウス1',
