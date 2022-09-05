@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MatchingApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header>
+    <% if session[:user_id] %>
+      <%= link_to "Top/House", root_path %>
+      <%= link_to "User", users_path %>
+      <%= link_to "Signup", "/signup" %>
+      Login:
+      <%= @current_user.name %>
+      <%= button_to "Logout", logout_path %>
+    <% else %>
+      <%= link_to "Top/House", root_path %>
+      <%= link_to "Login", login_path %>
+    <% end %>
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      (c)shinyaishizaki.com
+    </footer>
+  </body>
+</html>

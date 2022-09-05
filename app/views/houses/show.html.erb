@@ -1,0 +1,53 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @house %>
+
+<div>
+  <% okFlg = "可" %>
+  <% ngFlg = "不可" %>
+  <table>
+    <tr>
+      <td>建物名</td>
+      <td><%= @house.name %></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td><%= @house.address %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @house.email %></td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td><%= @house.phonenumber %></td>
+    </tr>
+    <tr>
+      <td>身体障害者</td>
+      <td><%= @house.feature1 == true ? okFlg : ngFlg %></td>
+    </tr>
+    <tr>
+      <td>知的障害者</td>
+      <td><%= @house.feature2 == true ? okFlg : ngFlg %></td>
+    </tr>
+    <tr>
+      <td>精神障害者</td>
+      <td><%= @house.feature3 == true ? okFlg : ngFlg %></td>
+    </tr>
+    <tr>
+      <td>発達障害者</td>
+      <td><%= @house.feature4 == true ? okFlg : ngFlg %></td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <% if session[:user_id] %>
+    <%= link_to "Edit this house", edit_house_path(@house) %> |
+  <% end %>
+  <%= link_to "Back to houses", houses_path %>
+  
+  <% if session[:user_id] %>
+    <%= button_to "Destroy this house", @house, method: :delete, form: { data: { turbo_confirm: "Sure to delete?" }} %>
+  <% end %>
+</div>

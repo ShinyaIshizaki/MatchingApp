@@ -1,0 +1,52 @@
+<%= form_with(model: house, local: true) do |form| %>
+  <table>
+    <tr>
+      <td>建物名</td>
+      <td><%= form.text_field :name %></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td><%= form.text_field :address %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= form.text_field :email %></td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td><%= form.text_field :phonenumber %></td>
+    </tr>
+    <tr>
+      <td>身体障害者</td>
+      <td><%= form.check_box :feature1 %></td>
+    </tr>
+    <tr>
+      <td>知的障害者</td>
+      <td><%= form.check_box :feature2 %></td>
+    </tr>
+    <tr>
+      <td>精神障害者</td>
+      <td><%= form.check_box :feature3 %></td>
+    </tr>
+    <tr>
+      <td>発達障害者</td>
+      <td><%= form.check_box :feature4 %></td>
+    </tr>
+  </table>
+
+  <% if house.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+        <% house.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

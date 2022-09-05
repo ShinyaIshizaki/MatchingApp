@@ -1,0 +1,2 @@
+module Houses::SearchesHelper
+end

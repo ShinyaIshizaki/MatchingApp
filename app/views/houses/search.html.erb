@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Houses</h1>
+
+<div id="houses">
+  <table>
+    <tr>
+      <th>建物名</th>
+      <th>住所</th>
+      <th>身体障害者</th>
+      <th>知的障害者</th>
+      <th>精神障害者</th>
+      <th>発達障害者</th>
+      <th>詳細</th>
+    </tr>
+    <% @results.each do |house| %>
+      <% okFlg = "可" %>
+      <% ngFlg = "不可" %>
+      <tr>
+        <%= render house %>
+        <td><%= house.name %></td>
+        <td><%= house.address %></td>
+        <td><%= house.feature1 == true ? okFlg : ngFlg %></td>
+        <td><%= house.feature2 == true ? okFlg : ngFlg %></td>
+        <td><%= house.feature3 == true ? okFlg : ngFlg %></td>
+        <td><%= house.feature4 == true ? okFlg : ngFlg %></td>
+        <td><%= link_to "Show this house", house %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to "Back to houses", houses_path %>
+</div>

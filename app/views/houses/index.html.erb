@@ -1,0 +1,63 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Houses</h1>
+
+<%= search_form_for @q, url: search_path do |f| %>
+  <%= f.label :address_cont, '都道府県（例）北海道' %>
+  <%= f.search_field :address_cont %>
+  <br>
+  <%= f.label :feature1_cont, '身体障害者（例）1（可）、0（不可）' %>
+  <%= f.search_field :feature1_cont %>
+  <br>
+  <%= f.label :feature2_cont, '知的障害者（例）1（可）、0（不可）' %>
+  <%= f.search_field :feature2_cont %>
+  <br>
+  <%= f.label :feature3_cont, '精神障害者（例）1（可）、0（不可）' %>
+  <%= f.search_field :feature3_cont %>
+  <br>
+  <%= f.label :feature4_cont, '発達障害者（例）1（可）、0（不可）' %>
+  <%= f.search_field :feature4_cont %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+
+<div>
+<%# <%= render "houses/prefecture" %>
+</div>
+
+<div>
+<%# <%= render "houses/feature" %>
+</div>
+
+
+<div id="houses">
+  <table>
+    <tr>
+      <th>建物名</th>
+      <th>住所</th>
+      <th>身体障害者</th>
+      <th>知的障害者</th>
+      <th>精神障害者</th>
+      <th>発達障害者</th>
+      <th>詳細</th>
+    </tr>
+    <% @houses.each do |house| %>
+      <% okFlg = "可" %>
+      <% ngFlg = "不可" %>
+      <tr>
+        <%= render house %>
+        <td><%= house.name %></td>
+        <td><%= house.address %></td>
+        <td><%= house.feature1 == true ? okFlg : ngFlg %></td>
+        <td><%= house.feature2 == true ? okFlg : ngFlg %></td>
+        <td><%= house.feature3 == true ? okFlg : ngFlg %></td>
+        <td><%= house.feature4 == true ? okFlg : ngFlg %></td>
+        <td><%= link_to "Show this house", house %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<% if session[:user_id] %>
+  <%= link_to "New house", new_house_path %>
+<% end %>

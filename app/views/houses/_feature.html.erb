@@ -1,0 +1,23 @@
+<%= form_with do |form| %>
+
+<fieldset>
+<legend>特徴</legend>
+<label>
+  <%= form.check_box :feature1, {multiple: true} %>
+  身体障害者可
+</label>
+<label>
+  <%= form.check_box :feature2, {multiple: true} %>
+  知的障害者可
+</label>
+<label>
+  <%= form.check_box :feature3, {multiple: true} %>
+  精神障害者可
+</label>
+<label>
+  <%= form.check_box :feature4, {multiple: true} %>
+  発達障害者可
+</label>
+</fieldset>
+
+<% end %>
